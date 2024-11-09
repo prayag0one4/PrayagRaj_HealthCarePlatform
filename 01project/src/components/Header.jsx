@@ -6,6 +6,28 @@ const navLinks = [
     path: "/home",
     display: "Dashboard",
   },
+  {
+    path: "/doctors",
+    display: "Virtual Consultations",
+  },
+  
+ 
+  {
+    path: "/pharmacy",
+    display: "Pharmacy",
+  },
+  {
+    path: "/healtheducation",
+    display: "Health Education",
+  },
+  {
+    path:"/image",
+    display:"Image Scanner"
+  },
+  {
+    path: "/contact",
+    display: "Contact",
+  },
    
 ];
 

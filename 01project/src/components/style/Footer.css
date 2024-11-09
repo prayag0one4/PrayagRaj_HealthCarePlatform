@@ -1,0 +1,40 @@
+.footer {
+  padding: 16px 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.footer h2 {
+  color: #333;
+}
+
+.footer .sociallinks a {
+  color: #333;
+}
+
+.text-primaryColor {
+  color: #0d6efd; /* Example primary color */
+}
+
+.text-headingColor {
+  color: #495057;
+}
+
+.text-textColor {
+  color: #6c757d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.footer .flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer ul {
+  list-style: none;
+}

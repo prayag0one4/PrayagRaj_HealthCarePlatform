@@ -1,5 +1,5 @@
 import React from "react";
-import "education-page.css"; //CSS file
+import './education-page.css' //CSS file
 
 // Sample Data
 const articles = [

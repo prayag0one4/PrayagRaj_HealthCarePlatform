@@ -1,5 +1,8 @@
  
+ 
+ 
 import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 import Routers from "../routes/Routers.jsx";
 
 const Layout = () => {
@@ -9,6 +12,8 @@ const Layout = () => {
       <main >
       <Routers />
     </main>
+     <Footer />
+  
    
     </>
   );
