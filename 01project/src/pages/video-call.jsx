@@ -1,7 +1,14 @@
+// src/components/VideoCall.js
+
 import React, { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Peer from 'peerjs';
 
-const VideoCall = ({ peerId }) => {
+const VideoCall = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const peerId = location.state?.peerId;
+
   const [remotePeerIdValue, setRemotePeerIdValue] = useState('');
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
@@ -10,28 +17,30 @@ const VideoCall = ({ peerId }) => {
   const peerInstance = useRef();
 
   useEffect(() => {
-    // Initialize PeerJS with unique peerId
+    if (!peerId) {
+      alert("No peer ID provided! Redirecting to booking page.");
+      navigate("/");
+      return;
+    }
+
     peerInstance.current = new Peer(peerId);
 
-    // Handle incoming call
     peerInstance.current.on('call', (call) => {
       navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
         setLocalStream(stream);
-        call.answer(stream); // Answer the call with local video stream
+        call.answer(stream);
         call.on('stream', (remoteStream) => {
           setRemoteStream(remoteStream);
         });
       });
     });
 
-    // Cleanup on component unmount
     return () => {
       peerInstance.current.destroy();
       if (localStream) localStream.getTracks().forEach(track => track.stop());
     };
-  }, [peerId, localStream]);
+  }, [peerId, localStream, navigate]);
 
-  // Start call with another peer
   const callPeer = (remotePeerId) => {
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
       setLocalStream(stream);
@@ -42,7 +51,6 @@ const VideoCall = ({ peerId }) => {
     });
   };
 
-  // Set up video elements
   useEffect(() => {
     if (localVideoRef.current && localStream) {
       localVideoRef.current.srcObject = localStream;
@@ -53,36 +61,35 @@ const VideoCall = ({ peerId }) => {
   }, [localStream, remoteStream]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl w-full text-center">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-8">
+      <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl w-full text-center">
         <h2 className="text-3xl font-semibold mb-6 text-gray-700">Video Consultation</h2>
         
         {/* Video containers */}
         <div className="flex justify-around items-center mb-6">
           {/* Local video */}
           <div className="flex flex-col items-center">
-            <p className="text-md text-gray-500 mb-2">Your Video</p>
-            <video ref={localVideoRef} autoPlay muted className="w-60 h-60 bg-gray-200 rounded-lg shadow-sm"></video>
+          <p className="text-lg text-gray-500 mb-2">Your Video</p>
+          <video ref={localVideoRef} autoPlay muted className="w-60 h-60 bg-gray-200 rounded-lg shadow-md"></video>
           </div>
 
           {/* Remote video */}
           <div className="flex flex-col items-center">
-            <p className="text-md text-gray-500 mb-2">Consultant's Video</p>
-            <video ref={remoteVideoRef} autoPlay className="w-60 h-60 bg-gray-200 rounded-lg shadow-sm"></video>
-          </div>
+          <p className="text-lg text-gray-500 mb-2">Consultant's Video</p>
+          <video ref={remoteVideoRef} autoPlay className="w-60 h-60 bg-gray-200 rounded-lg shadow-md"></video>
         </div>
+    </div>
 
-        {/* Input for peer ID and call button */}
         <input
           type="text"
           value={remotePeerIdValue}
           onChange={(e) => setRemotePeerIdValue(e.target.value)}
           placeholder="Enter remote peer ID"
-          className="border border-gray-300 rounded-md px-4 py-3 mb-6 w-full"
+          className="border border-gray-300 rounded-md px-3 py-2 mb-4 w-full"
         />
         <button
           onClick={() => callPeer(remotePeerIdValue)}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded w-full"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded w-full"
         >
           Start Call
         </button>
