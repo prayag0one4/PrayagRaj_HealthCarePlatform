@@ -1,21 +1,24 @@
 import React from "react";
 import doctor from "../assets/images/doctor-image.png";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const Home = () => {
+  const { t } = useTranslation();
   const features = [
     {
-      title: "Schedule Appointment",
-      description: "Book your appointments easily.",
+      title: t('line1'),
+      description: t('line2'),
       icon: "📅",
     },
     {
-      title: "Find Pharmacies",
-      description: "Find pharmacies near you easily.",
+      title: t('line3'),
+      description: t('line4'),
       icon: "🏥",
     },
     {
-      title: "Health Education",
-      description: "Access health resources and emergency guidelines.",
+      title: t('line5'),
+      description: t('line6'),
       icon: "📘",
     },
   ];
@@ -28,9 +31,7 @@ const Home = () => {
         <nav className="flex items-center justify-between px-8 py-4 bg-transparent">
           <div className="flex items-center space-x-4"></div>
           <div className="flex items-center space-x-4">
-            <button className="text-sm font-semibold text-black">
-              translate🌐
-            </button>{" "}
+            <LanguageSwitcher/>{" "}
             {/* Translate Icon */}
           </div>
         </nav>

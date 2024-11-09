@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doctors } from "../../../data/doctors.js";
- 
+import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "./DoctorAbout.jsx";
 import Feedback from "./Feedback.jsx";
 import SidePanel from "./SidePanel.jsx";
- 
+import VideoCall from "../video-call.jsx";
 import Videocalling from "./videocallbutton.jsx"
 
 const DoctorsDetails = () => {
