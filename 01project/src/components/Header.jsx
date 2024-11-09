@@ -3,6 +3,7 @@ import userImg from "../assets/images/avatar-icon.png";
 import { Link, NavLink } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { useEffect, useRef } from "react";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
@@ -35,6 +36,7 @@ const Header = () => {
       display: t('dash7'), // Translated text
     },
   ];
+  const{user,loginWithRedirect,isAuthenticated,logout} =  useAuth0();
 
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
@@ -93,10 +95,9 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        
         <Link to="login">
-          <button className="bg-blue-500 py-2 px-6 text-white hover:bg-blue-600 font-[600] h-[44px] flex items-center justify-center rounded-[50px] ml-2 mt-10">
-            {t('login')}
+          <button className=" bg-blue-500 py-2 px-6 text-white hover:bg-blue-600 font-[600] h-[44px] flex items-center justify-center rounded-[50px]   ml-2 mt-10">
+            Login
           </button>
         </Link>
         
