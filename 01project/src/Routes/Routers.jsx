@@ -7,6 +7,7 @@ import Contact from "../pages/Contact";
 import DoctorsDetails from "../pages/Doctors/DoctorsDetails";
 import MapPage from "../pages/pharmacy";
 import VideoCall from "../pages/video-call";
+import BookAppointment from "../pages/BookAppointment";
 
 
 const Routers = () => {
@@ -16,6 +17,7 @@ const Routers = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/doctors" element={<Doctor />} />
       <Route path="/doctors/:id" element={<DoctorsDetails />} />
+      <Route path="/BookAppointment" element={<BookAppointment />} />
        <Route path="/video-call" element={<VideoCall peerId="YourUniquePeerID" />} />
       <Route path="/pharmacy" element={<MapPage />} />
       <Route path="/healtheducation" element={<HealthEducation />} />
