@@ -11,6 +11,10 @@
     "dash4": "Pharmacy",
     "dash5": "Health Education",
     "dash6": "Image Scanner",
-    "dash7": "Contact"
+    "dash7": "Contact",
+    "title": "Medicare+",
+    "login": "Login",
+    "heading":"Providing easy access to healthcare and emergency services.",
+    "book":"Book an Appointment"
 
   }
