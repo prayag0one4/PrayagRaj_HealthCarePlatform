@@ -1,4 +1,5 @@
 import Videocallbutton from "./videocallbutton";
+import BookAppointmentButton from "./BookAppointmentButton";
 
 const SidePanel = () => {
   return (
@@ -31,9 +32,7 @@ const SidePanel = () => {
           </li>
         </ul>
       </div>
-      <button className="w-full mt-6 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
-        Book Appointment
-      </button>
+      <BookAppointmentButton/>
       <Videocallbutton/>
     </div>
   );

@@ -105,11 +105,8 @@ const DoctorsDetails = () => {
 
             <div className="space-y-8">
               <SidePanel />
-              <Videocalling />
             </div>
           </div>
-          <SidePanel />
-          <Videocalling/>
         </div>
       </div>
     </section>
