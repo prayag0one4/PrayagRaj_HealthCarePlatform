@@ -14,13 +14,13 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-       <Route path="/doctors" element={<Doctor/>}/>
-       <Route path="/doctors/:id" element={<DoctorsDetails/>}/>
+      <Route path="/doctors" element={<Doctor />} />
+      <Route path="/doctors/:id" element={<DoctorsDetails />} />
        <Route path="/video-call" element={<VideoCall peerId="YourUniquePeerID" />} />
-       <Route path="/pharmacy" element={<MapPage/>}/>
-       <Route path="/healtheducation" element={<HealthEducation/>}/>
-       <Route path="/image" element={<Image/>}/>
-       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/pharmacy" element={<MapPage />} />
+      <Route path="/healtheducation" element={<HealthEducation />} />
+      <Route path="/image" element={<Image />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 };

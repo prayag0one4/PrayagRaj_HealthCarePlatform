@@ -2,53 +2,38 @@ import Videocallbutton from "./videocallbutton";
 
 const SidePanel = () => {
   return (
-    <div className="shadow-panelShadow  p-3 lg:p-5 rounded-md">
-      <div className="flex items-center justify-between">
-        <p className="text_para mt-0 font-semibold">Ticket Price</p>
-        <span className="textx-[16px] leading-7 lg:text-[32px] lg:leading-8 text-headingColor font-bold">
-          ₹200
-        </span>
+    <div className="shadow-lg p-5 rounded-lg bg-white max-w-6xl ">
+      <div className="flex items-center justify-between border-b pb-4">
+        <p className="text-lg font-semibold text-gray-800">Ticket Price</p>
+        <span className="text-3xl font-bold text-blue-600">₹200</span>
       </div>
-      <div className="mt-[30px]">
-        <p className="text_para mt-0 font-semibold text-headingColor">
+
+      <div className="mt-6">
+        <p className="text-lg font-semibold text-gray-800 mb-4">
           Available Time Slots:
         </p>
-        <ul className="mt-3">
-          <li className="flex items-center justify-between mb-2">
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Sunday
-            </p>
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              4:00 PM - 9:30 PM
-            </p>
+        <ul className="space-y-4">
+          <li className="hover:bg-gray-50 p-3 rounded-md transition-colors">
+            <p className="text-gray-700 font-medium mb-1">Sunday</p>
+            <p className="text-gray-600">4:00 PM - 9:30 PM</p>
           </li>
-          <li className="flex items-center justify-between mb-2">
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Monday
-            </p>
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              4:00 PM - 9:30 PM
-            </p>
+          <li className="hover:bg-gray-50 p-3 rounded-md transition-colors">
+            <p className="text-gray-700 font-medium mb-1">Monday</p>
+            <p className="text-gray-600">4:00 PM - 9:30 PM</p>
           </li>
-          <li className="flex items-center justify-between mb-2">
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Tuesday
-            </p>
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              4:00 PM - 9:30 PM
-            </p>
+          <li className="hover:bg-gray-50 p-3 rounded-md transition-colors">
+            <p className="text-gray-700 font-medium mb-1">Tunday</p>
+            <p className="text-gray-600">4:00 PM - 9:30 PM</p>
           </li>
-          <li className="flex items-center justify-between mb-2">
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Wednesday
-            </p>
-            <p className="text-[15px] leading-6 text-textColor font-semibold">
-              4:00 PM - 9:30 PM
-            </p>
+          <li className="hover:bg-gray-50 p-3 rounded-md transition-colors">
+            <p className="text-gray-700 font-medium mb-1">Wednesday</p>
+            <p className="text-gray-600">4:00 PM - 9:30 PM</p>
           </li>
         </ul>
       </div>
-      <button className="btn w-full px-2 rounded-md">Book Appointment</button>
+      <button className="w-full mt-6 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+        Book Appointment
+      </button>
       <Videocallbutton/>
     </div>
   );
