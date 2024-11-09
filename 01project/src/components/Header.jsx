@@ -1,46 +1,47 @@
- 
 import "./style/Header.css";
 import userImg from "../assets/images/avatar-icon.png";
 import { Link, NavLink } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { useEffect, useRef } from "react";
-const navLinks = [
-  {
-    path: "/home",
-    display: "Dashboard",
-  },
-  {
-    path: "/doctors",
-    display: "Virtual Consultations",
-  },
-   
-
-  {
-    path: "/pharmacy",
-    display: "Pharmacy",
-  },
-  {
-    path: "/healtheducation",
-    display: "Health Education",
-  },
-  {
-    path: "/image",
-    display: "Image Scanner",
-  },
-  {
-    path: "/contact",
-    display: "Contact",
-  },
-];
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation();
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const navLinks = [
+    {
+      path: "/home",
+      display: t('dash1'), // Translated text
+    },
+    {
+      path: "/doctors",
+      display: t('dash3'), // Translated text
+    },
+    {
+      path: "/pharmacy",
+      display: t('dash4'), // Translated text
+    },
+    {
+      path: "/healtheducation",
+      display: t('dash5'), // Translated text
+    },
+    {
+      path: "/image",
+      display: t('dash6'), // Translated text
+    },
+    {
+      path: "/contact",
+      display: t('dash7'), // Translated text
+    },
+  ];
+  const{user,loginWithRedirect,isAuthenticated,logout} =  useAuth0();
 
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
       if (
-        document.body.sscrollTop > 80 ||
+        document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
       ) {
         headerRef.current.classList.add("sticky__header");
@@ -53,27 +54,27 @@ const Header = () => {
   useEffect(() => {
     handleStickyHeader();
     return () => window.removeEventListener("scroll", handleStickyHeader);
-  });
-  const togglemenu = () => menuRef.current.classList.toggle("shown__menu");
+  }, []);
+  
+  const toggleMenu = () => menuRef.current.classList.toggle("shown__menu");
+
   return (
-    // <header className="header">
     <div className="container">
-      <div className="w-60 h-screen bg-gray-50 fixed left-0 top-0 ">
-        {/*  Logo  */}
+      <div className="w-60 h-screen bg-gray-50 fixed left-0 top-0">
+        {/* Logo */}
         <div className="p-4">
-          <h1 className="text-indigo-600 text-xl font-semibold">MediCare+</h1>
+          <h1 className="text-indigo-600 text-xl font-semibold">{t('title')}</h1>
         </div>
 
         {/* Menu */}
-
-        <div className="navigation " onClick={togglemenu} ref={menuRef}>
-          <ul className="flex flex-col space-y-6 p-4 ">
+        <div className="navigation" onClick={toggleMenu} ref={menuRef}>
+          <ul className="flex flex-col space-y-6 p-4">
             {navLinks.map((item, index) => (
               <li key={index}>
                 <NavLink
                   to={item.path}
-                  className={(navClass) =>
-                    navClass.isActive
+                  className={({ isActive }) =>
+                    isActive
                       ? "text-primaryColor text-16px leading-7 font-600"
                       : "text-textColor text-16px leading-7 font-500"
                   }
@@ -99,12 +100,12 @@ const Header = () => {
             Login
           </button>
         </Link>
-        <span className="md:hidden" onClick={togglemenu}>
+        
+        <span className="md:hidden" onClick={toggleMenu}>
           <BiMenu className="w-6 h-6 cursor-pointer" />
         </span>
       </div>
     </div>
-    // </header>
   );
 };
 

@@ -3,8 +3,10 @@ import doctor from "../assets/images/doctor-image.png";
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
+
 const Home = () => {
   const { t } = useTranslation();
+  
   const features = [
     {
       title: t('line1'),
@@ -23,6 +25,7 @@ const Home = () => {
     },
   ];
 
+  
   return (
     <div className="home">
       {" "}
@@ -42,13 +45,13 @@ const Home = () => {
             <div className="lg:w-1/2 mb-8 lg:mb-0">
               <div className="flex flex-col items-center justify-center lg:w-1/2 mb-8 lg:mb-0 mx-auto text-center">
                 <h1 className="text-5xl font-light text-gray-800 mb-4">
-                  Medicare+
+                  {t('title')}
                 </h1>
                 <p className="text-xl text-gray-600 mb-8">
-                  Providing easy access to healthcare and emergency services.
+                  {t('heading')}
                 </p>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-md transition duration-300">
-                  Book an Appointment
+                  {t('book')}
                 </button>
               </div>
             </div>
