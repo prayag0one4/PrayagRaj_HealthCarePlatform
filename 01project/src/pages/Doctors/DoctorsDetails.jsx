@@ -92,7 +92,6 @@ const DoctorsDetails = () => {
             </div>
           </div>
           <SidePanel />
-          <Videocalling/>
         </div>
       </div>
     </section>

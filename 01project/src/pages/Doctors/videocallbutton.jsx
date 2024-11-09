@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-const videocallbutton = () => {
+const Videocallbutton = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -8,10 +8,10 @@ const videocallbutton = () => {
   };
 
   return (
-    <button className="btn w-full px-2 rounded-md" onClick={handleRedirect}>
+    <button onClick={handleRedirect}>
       Start Video Consultation
     </button>
   );
 };
 
-export default videocallbutton;
+export default Videocallbutton;

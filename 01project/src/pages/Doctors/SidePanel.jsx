@@ -1,3 +1,5 @@
+import Videocallbutton from "./videocallbutton";
+
 const SidePanel = () => {
   return (
     <div className="shadow-panelShadow  p-3 lg:p-5 rounded-md">
@@ -47,6 +49,7 @@ const SidePanel = () => {
         </ul>
       </div>
       <button className="btn w-full px-2 rounded-md">Book Appointment</button>
+      <Videocallbutton/>
     </div>
   );
 };

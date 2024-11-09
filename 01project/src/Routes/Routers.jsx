@@ -6,7 +6,8 @@ import Image from "../pages/image";
 import Contact from "../pages/Contact";
 import DoctorsDetails from "../pages/Doctors/DoctorsDetails";
 import MapPage from "../pages/pharmacy";
- 
+import VideoCall from "../pages/video-call";
+
 
 const Routers = () => {
   return (
@@ -15,6 +16,7 @@ const Routers = () => {
       <Route path="/home" element={<Home />} />
        <Route path="/doctors" element={<Doctor/>}/>
        <Route path="/doctors/:id" element={<DoctorsDetails/>}/>
+       <Route path="/video-call" element={<VideoCall peerId="YourUniquePeerID" />} />
        <Route path="/pharmacy" element={<MapPage/>}/>
        <Route path="/healtheducation" element={<HealthEducation/>}/>
        <Route path="/image" element={<Image/>}/>
