@@ -6,7 +6,7 @@ import DoctorAbout from "./DoctorAbout.jsx";
 import Feedback from "./Feedback.jsx";
 import SidePanel from "./SidePanel.jsx";
 import VideoCall from "../video-call.jsx";
-import Videocalling from "./videocallbutton.jsx"
+import Videocalling from "./videocallbutton.jsx";
 
 const DoctorsDetails = () => {
   const { id } = useParams();
@@ -33,66 +33,81 @@ const DoctorsDetails = () => {
   } = doctor;
 
   return (
-    <section>
-      <div className="max-w-7xl ml-64 px-5 mx-auto">
-        <div className="grid md:grid-cols-3 gap-[50px] max-w-7xl ml-64">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-5">
-              <figure>
-                <img
-                  src={photo}
-                  alt={name}
-                  className="w-[200px] h-[200px] rounded"
-                />
-              </figure>
-              <div>
-                <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-6 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[16px] lg:leading-7 font-semibold rounded">
-                  {specialty}
-                </span>
-                <h3 className="text-headingColor text-[22px] leading-9 mt-3 font-bold">
-                  {name}
-                </h3>
-                <div className="flex items-center gap-[6px]">
-                  <span className="flex items-center gap-[6px] text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
-                    <img src={starIcon} alt="star" /> {avgRating}
+    <section className="py-14">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="ml-64">
+          <div className="grid grid-cols-3 gap-8 ">
+            <div className="md:col-span-2 bg-white rounded-lg p-6">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-8 justify-between">
+                <figure className="flex-shrink-0">
+                  <img
+                    src={photo}
+                    alt={name}
+                    className="w-48 h-48 rounded-lg object-cover shadow-sm"
+                  />
+                </figure>
+
+                <div className="space-y-4">
+                  <span className="inline-block bg-[#CCF0F3] text-irisBlueColor py-1.5 px-4 text-sm lg:text-base font-semibold rounded-full">
+                    {specialty}
                   </span>
-                  <span className="text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
-                    ({totalRating})
-                  </span>
+
+                  <h3 className="text-2xl lg:text-3xl font-bold text-headingColor">
+                    {name}
+                  </h3>
+
+                  <div className="flex items-center gap-2">
+                    <span className="flex items-center gap-1.5 text-sm lg:text-base font-semibold text-headingColor">
+                      <img src={starIcon} alt="rating" className="w-5 h-5" />
+                      {avgRating}
+                    </span>
+                    <span className="text-sm lg:text-base font-semibold text-headingColor">
+                      ({totalRating})
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 text-sm lg:text-base max-w-2xl">
+                    {short}
+                  </p>
                 </div>
-                <p className="text_para text-[14px] leading-5 md:text-[15px] lg:max-w-[390px]">
-                  {short}
-                </p>
+              </div>
+
+              <div className="mt-12 border-b border-gray-200">
+                <div className="space-x-8">
+                  <button
+                    onClick={() => setTab("about")}
+                    className={`pb-4 text-base font-semibold text-headingColor transition-colors ${
+                      tab === "about"
+                        ? "border-b-2 border-primaryColor text-primaryColor"
+                        : "hover:text-primaryColor"
+                    }`}
+                  >
+                    About
+                  </button>
+                  <button
+                    onClick={() => setTab("feedback")}
+                    className={`pb-4 text-base font-semibold text-headingColor transition-colors ${
+                      tab === "feedback"
+                        ? "border-b-2 border-primaryColor text-primaryColor"
+                        : "hover:text-primaryColor"
+                    }`}
+                  >
+                    Feedback
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                {tab === "about" && <DoctorAbout doctor={doctor} />}
+                {tab === "feedback" && <Feedback doctor={doctor} />}
               </div>
             </div>
 
-            <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
-              <button
-                onClick={() => setTab("about")}
-                className={`${
-                  tab === "about" && `border-b border-solid border-primaryColor`
-                } py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}
-              >
-                About
-              </button>
-              <button
-                onClick={() => setTab("feedback")}
-                className={`${
-                  tab === "feedback" &&
-                  `border-b border-solid border-primaryColor`
-                } py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}
-              >
-                Feedback
-              </button>
-            </div>
-            <div className="mt-[50px]">
-              {tab === "about" && <DoctorAbout doctor={doctor} />}
-
-              {tab === "feedback" && <Feedback doctor={doctor} />}
+            <div className="space-y-8">
+              <SidePanel />
+              <Videocalling />
             </div>
           </div>
-          <SidePanel />
-          <Videocalling/>
         </div>
       </div>
     </section>
