@@ -1,5 +1,8 @@
+import logo from "../../src/assets/images/logo.png";
+import "./style/Header.css";
+import userImg from "../assets/images/avatar-icon.png";
 import { Link, NavLink } from "react-router-dom";
- 
+import { BiMenu } from "react-icons/bi";
 import { useEffect, useRef } from "react";
 const navLinks = [
   {
@@ -8,10 +11,13 @@ const navLinks = [
   },
   {
     path: "/doctors",
+    display: "Find a Doctor",
+  },
+  {
+    path: "/services",
     display: "Virtual Consultations",
   },
-  
- 
+
   {
     path: "/pharmacy",
     display: "Pharmacy",
@@ -21,14 +27,13 @@ const navLinks = [
     display: "Health Education",
   },
   {
-    path:"/image",
-    display:"Image Scanner"
+    path: "/image",
+    display: "Image Scanner",
   },
   {
     path: "/contact",
     display: "Contact",
   },
-   
 ];
 
 const Header = () => {
@@ -87,7 +92,7 @@ const Header = () => {
           <div className="hidden">
             <Link to="/">
               <figure className="w-35px h-35px rounded-full">
-                
+                <img src={userImg} alt="user" />
               </figure>
             </Link>
           </div>
@@ -98,7 +103,7 @@ const Header = () => {
           </button>
         </Link>
         <span className="md:hidden" onClick={togglemenu}>
-           
+          <BiMenu className="w-6 h-6 cursor-pointer" />
         </span>
       </div>
     </div>
