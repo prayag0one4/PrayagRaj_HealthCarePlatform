@@ -7,14 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# Build output directories
 dist
 dist-ssr
+.vite/
+.cache/
+
+# Local environment files
 *.local
+.env
+.env.local
+.env.*.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+.vscode/*.code-workspace
 .idea
 .DS_Store
 *.suo
@@ -22,3 +33,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Workspace files
+*.code-workspace
+
+# Code coverage output
+coverage/
+
