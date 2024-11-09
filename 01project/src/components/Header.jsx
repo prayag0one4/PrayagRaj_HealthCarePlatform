@@ -1,4 +1,4 @@
-import logo from "../../src/assets/images/logo.png";
+ 
 import "./style/Header.css";
 import userImg from "../assets/images/avatar-icon.png";
 import { Link, NavLink } from "react-router-dom";
@@ -11,12 +11,9 @@ const navLinks = [
   },
   {
     path: "/doctors",
-    display: "Find a Doctor",
-  },
-  {
-    path: "/services",
     display: "Virtual Consultations",
   },
+   
 
   {
     path: "/pharmacy",
