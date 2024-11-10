@@ -32,6 +32,10 @@ const Header = () => {
       display: t("dash6"), // Translated text
     },
     {
+      path:"/chatbot",
+      display:"Chatbot"
+    },
+    {
       path: "/contact",
       display: t("dash7"), // Translated text
     },
