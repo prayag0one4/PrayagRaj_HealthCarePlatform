@@ -8,6 +8,8 @@ import DoctorsDetails from "../pages/Doctors/DoctorsDetails";
 import MapPage from "../pages/pharmacy";
 import VideoCall from "../pages/video-call";
 import BookAppointment from "../pages/BookAppointment";
+import TelemedChatbot from "../pages/chatbot";
+
 
 
 const Routers = () => {
@@ -22,6 +24,7 @@ const Routers = () => {
       <Route path="/pharmacy" element={<MapPage />} />
       <Route path="/healtheducation" element={<HealthEducation />} />
       <Route path="/image" element={<Image />} />
+      <Route path="/chatbot" element={<TelemedChatbot />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );
