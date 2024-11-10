@@ -81,7 +81,7 @@ const Home = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
                   <button className="bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-md">
-                    Learn More
+                    {t('Learn')}
                   </button>
                 </div>
               </Link>

@@ -102,7 +102,7 @@ const Header = () => {
           </div>
         </div>
         <button onClick={(e)=>logout()} className=" bg-blue-500 py-2 px-6 text-white hover:bg-blue-600 font-[600] h-[44px] flex items-center justify-center rounded-[50px]   ml-2 mt-10">
-          Logout
+          {t('logout')}
         </button>
         <span className="md:hidden" onClick={toggleMenu}>
           <BiMenu className="w-6 h-6 cursor-pointer" />
