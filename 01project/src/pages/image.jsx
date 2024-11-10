@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from "react";
 import ImageUploader from "../../imagecomponents/ImageUploader";
 import OCR from "../../imagecomponents/OCR";
@@ -53,10 +52,32 @@ function Image() {
           </div>
 
           {selectedImage && (
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <p className="text-gray-700">
-                Selected file: {selectedImage.name}
-              </p>
+            <div className="space-y-6">
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <p className="text-gray-700">
+                  Selected file: {selectedImage.name}
+                </p>
+              </div>
+
+              {/* Image preview */}
+              <div className="mt-4">
+                <img
+                  src={URL.createObjectURL(selectedImage)}
+                  alt="Selected medicine"
+                  className="max-w-full h-auto mx-auto rounded-lg shadow-md"
+                  style={{ maxHeight: "400px" }}
+                />
+              </div>
+
+              {/* OCR Results */}
+              <div className="mt-6 p-6 bg-gray-50 rounded-lg">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                  Extracted Information
+                </h2>
+                <div className="text-left">
+                  <OCR image={selectedImage} />
+                </div>
+              </div>
             </div>
           )}
         </div>
