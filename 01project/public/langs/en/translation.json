@@ -13,8 +13,10 @@
     "dash6": "Image Scanner",
     "dash7": "Contact",
     "title": "Medicare+",
-    "login": "Login",
+    "logout": "Logout",
     "heading":"Providing easy access to healthcare and emergency services.",
-    "book":"Book an Appointment"
+    "book":"Book an Appointment",
+    "Learn":"Learn More"
+
 
   }
