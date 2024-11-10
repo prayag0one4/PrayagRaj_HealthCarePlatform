@@ -41,16 +41,16 @@ const Home = () => {
         </nav>
 
         {/* Hero Section */}
-        <div className="container mx-auto px-4 pt-8 pb-16">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between">
-            <div className="lg:w-1/2 mb-8 lg:mb-0">
-              <div className="flex flex-col items-center justify-center lg:w-1/2 mb-8 lg:mb-0 mx-auto text-center">
-                <h1 className="text-5xl font-light text-gray-800 mb-4">
+            <div className="lg:w-1/2 mb-4 lg:mb-0">
+              <div className="flex flex-col items-center justify-center lg:w-1/2 mb-4 lg:mb-0 mx-auto text-center">
+                <h1 className="text-5xl font-light text-gray-800 mb-3">
                   {t("title")}
                 </h1>
-                <p className="text-xl text-gray-600 mb-8">{t("heading")}</p>
+                <p className="text-xl text-gray-600 mb-6">{t("heading")}</p>
                 <Link to="/doctors">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-md transition duration-300">
+                  <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-8 rounded-md transition duration-300">
                     {t("book")}
                   </button>
                 </Link>
@@ -60,7 +60,7 @@ const Home = () => {
               <img
                 src={doctor}
                 alt="Doctor"
-                className="w-96 object-cover rounded-lg shadow-lg"
+                className="w-full max-w-4xl object-cover rounded-lg mr-16"
               />
             </div>
           </div>
@@ -81,7 +81,7 @@ const Home = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
                   <button className="bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-md">
-                    {t('Learn')}
+                    {t("Learn")}
                   </button>
                 </div>
               </Link>
